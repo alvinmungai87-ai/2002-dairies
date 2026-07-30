@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   description: "Fresh produce, dairy, and grocery supplies.",
   icons: {
     icon: "/logo.jpeg",
+    shortcut: "/logo.jpeg",
+    apple: "/logo.jpeg",
   },
 };
 
