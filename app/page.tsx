@@ -101,27 +101,16 @@ export default function Home() {
   // 1. Fetch live products from Supabase
   useEffect(() => {
     async function fetchProducts() {
-      try {
-        setLoading(true);
-        const { data, error } = await supabase
-          .from("products")
-          .select("*")
-          .order("created_at", { ascending: false });
+      const { data, error } = await supabase.from(`products`).select(`*`);
 
         if (error || !data || data.length === 0) {
-          console.warn("Using fallback products list.", error);
+          console.warn("Supabase Error:.", error);
           setProducts(MOCK_FALLBACK_PRODUCTS);
         } else {
           setProducts(data);
         }
-      } catch (err) {
-        console.error("Error fetching products:", err);
-        setProducts(MOCK_FALLBACK_PRODUCTS);
-      } finally {
         setLoading(false);
-      }
     }
-
     fetchProducts();
   }, []);
 
