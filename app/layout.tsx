@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "2002 Dairies",
   description: "Fresh produce, dairy, and grocery supplies.",
   icons: {
-    icon: "/logo.jpg", // Points to your logo file in the public folder
+    icon: "/logo.jpeg", // Points to your logo file in the public folder
   },
 };
 
