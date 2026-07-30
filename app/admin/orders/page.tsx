@@ -22,7 +22,7 @@ export default function AdminOrdersPage() {
   const [authError, setAuthError] = useState("");
 
   // 🔑 Set your secret admin passcode here!
-  const ADMIN_PASSWORD = "YourSecretPassword123";
+  const ADMIN_PASSWORD = "Your85201560";
 
   // --- ORDERS DASHBOARD STATE ---
   const [orders, setOrders] = useState<any[]>([]);
@@ -229,12 +229,21 @@ export default function AdminOrdersPage() {
     printWindow.print();
   };
 
-  // 🔒 LOCKOUT SCREEN (If not logged in)
+// 🔒 LOCKOUT SCREEN (If not logged in)
   if (!isAuthenticated) {
     return (
       <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "#f3f4f6", padding: "1rem" }}>
         <form
-          onSubmit={handleLogin}
+          onSubmit={(e) => {
+            e.preventDefault();
+            // Compare entered password with secret password
+            if (authPassword.trim() === ADMIN_PASSWORD) {
+              setIsAuthenticated(true);
+              setAuthError("");
+            } else {
+              setAuthError("Incorrect admin password!");
+            }
+          }}
           style={{ backgroundColor: "#ffffff", padding: "2rem", borderRadius: "12px", boxShadow: "0 4px 6px -1px rgba(0,0,0,0.1)", width: "100%", maxWidth: "400px", display: "flex", flexDirection: "column", gap: "1rem" }}
         >
           <h2 style={{ margin: 0, fontSize: "1.25rem", color: "#1f2937", fontWeight: "bold" }}>Admin Access Required</h2>
@@ -245,7 +254,7 @@ export default function AdminOrdersPage() {
             value={authPassword}
             onChange={(e) => setAuthPassword(e.target.value)}
             placeholder="Enter Admin Password"
-            style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid #d1d5db", fontSize: "1rem", outline: "none", boxSizing: "border-box" }}
+            style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid #d1d5db", fontSize: "1rem", outline: "none", boxSizing: "border-box", color: "#000" }}
             required
           />
 
