@@ -196,15 +196,7 @@ export default function AdminOrdersPage() {
             <p><strong>Customer:</strong> ${order.customer_name}</p>
             <p><strong>Phone:</strong> ${order.phone_number}</p>
             <p>
-            <strong>Delivery Location: </strong>
-            ${
-            order["delivery-Address"] || 
-            order.delivery_address || 
-            order.delivery_location || 
-            order.location || 
-            'N/A'
-             }
-            </p>
+            <strong>Delivery Location: </strong> ${order.delivery_Address}</p>
             <p><strong>Payment Status:</strong> ${order.payment_status}</p>
           </div>
 
