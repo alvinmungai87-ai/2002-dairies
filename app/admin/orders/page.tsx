@@ -122,7 +122,7 @@ export default function AdminOrdersPage() {
      `${order.order_number || order.id}\n` +
       `*Items:* ${itemNames || "N/A"}\n` +
       `*Total Amount:* KES ${order.total_amount}\n` +
-      `*Delivery Location:* ${order.delivery_location || order.delivery_address}\n` +
+      `*Delivery Location:* ${order.delivery_location || order.delivery_Address}\n` +
       `*Payment Status:* ${order.payment_status}\n\n` +
       `We are currently processing your order. Reply here if you have any questions!`;
 
@@ -147,7 +147,7 @@ export default function AdminOrdersPage() {
         "${o.order_number || o.id}",
         "${o.customer_name || ''}",
         "${o.phone_number || ''}",
-        "${o.delivery_location || o.delivery_address || ''}",
+        "${o.delivery_location || o.delivery_Address || ''}",
         "${itemsFormatted}",
         "${o.total_amount || 0}",
         "${o.payment_status || ''}",
